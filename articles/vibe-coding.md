@@ -1,6 +1,6 @@
 ---
 title: The Hidden Technical Debt of Relying Solely on Vibe Coding
-excerpt: testing and conteplating the thoughts
+excerpt: Your Jira tickets aren’t disappearing anytime soon
 date: 2026-01-11
 Tags:
   - vibe-coding
