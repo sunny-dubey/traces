@@ -37,7 +37,7 @@
     --text-secondary: #152a38;
     --text-muted: #2a4a5a;
     --text-faint: #3a5a6a;
-    --text-white: #000810;
+    --text-white: #000;
     --border-color: #a8d4e8;
     --border-light: #b8dff0;
     --accent-blue: #0066aa;
@@ -195,7 +195,7 @@ hr {
 }
 
 .prose strong {
-    font-weight: 600;
+    font-weight: 700;
     color: var(--text-white);
 }
 
