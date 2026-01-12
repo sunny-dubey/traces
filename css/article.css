@@ -10,9 +10,9 @@
 /* Theme Variables */
 :root {
     /* Dark theme (default) */
-    --bg-primary: #000;
-    --bg-secondary: #0d0d0d;
-    --bg-tertiary: #1a1a1a;
+    --bg-primary: #121212;
+    --bg-secondary: #1a1a1a;
+    --bg-tertiary: #242424;
     --text-primary: #e0e0e0;
     --text-secondary: #ccc;
     --text-muted: #888;
@@ -29,17 +29,17 @@
 }
 
 [data-theme="light"] {
-    /* Sky blue light theme */
-    --bg-primary: #cce7f5;
-    --bg-secondary: #b8ddf0;
-    --bg-tertiary: #a4d3eb;
-    --text-primary: #0a1a24;
-    --text-secondary: #152a38;
-    --text-muted: #2a4a5a;
-    --text-faint: #3a5a6a;
+    /* Soft light theme */
+    --bg-primary: #f5f7f9;
+    --bg-secondary: #eaeff3;
+    --bg-tertiary: #dfe6ec;
+    --text-primary: #1a1a2e;
+    --text-secondary: #2d2d44;
+    --text-muted: #5a5a72;
+    --text-faint: #8888a0;
     --text-white: #000;
-    --border-color: #a8d4e8;
-    --border-light: #b8dff0;
+    --border-color: #d0d7de;
+    --border-light: #e1e8ed;
     --accent-blue: #0066aa;
     --accent-blue-light: #0088cc;
     --accent-orange: #d45a2a;
