@@ -1,6 +1,6 @@
 ---
 title: The Hidden Technical Debt of Relying Solely on Vibe Coding
-excerpt: Your Jira tickets aren’t disappearing anytime soon
+excerpt: Your Jira tickets aren't disappearing anytime soon
 date: 2026-01-11
 Tags:
   - vibe-coding
@@ -8,6 +8,7 @@ Tags:
   - ai-slop
 readTime: 5
 public: true
+og_image: images/og/vibe-coding.jpg
 ---
 
 You’ve definitely heard the term **vibe coding** by now. If you’re a software developer, your day probably starts with opening Cursor and prompting to whatever the latest model is, right now everyone is talking about Opus 4.5. When the tokens run out, you switch IDEs or tools. Maybe Antigravity, maybe something else. If your company pays for it, chances are you’re using Claude Code just like me.

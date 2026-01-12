@@ -62,6 +62,9 @@ const Article = (() => {
     function updateMeta(frontmatter) {
         const title = frontmatter.title || 'Article';
         const excerpt = frontmatter.excerpt || '';
+        const ogImage = frontmatter.og_image || 'images/og/default.jpg';
+        const baseUrl = 'https://traces.sunnydubey.in';
+        const fullImageUrl = `${baseUrl}/${ogImage}`;
 
         // Update page title
         document.title = `${title} | Blog`;
@@ -80,11 +83,15 @@ const Article = (() => {
         updateOGTag('og:description', excerpt);
         updateOGTag('og:type', 'article');
         updateOGTag('og:url', window.location.href);
+        updateOGTag('og:image', fullImageUrl);
+        updateOGTag('og:image:width', '1200');
+        updateOGTag('og:image:height', '630');
 
         // Update Twitter Card tags
-        updateMetaTag('twitter:card', 'summary');
+        updateMetaTag('twitter:card', 'summary_large_image');
         updateMetaTag('twitter:title', title);
         updateMetaTag('twitter:description', excerpt);
+        updateMetaTag('twitter:image', fullImageUrl);
     }
 
     function updateOGTag(property, content) {
