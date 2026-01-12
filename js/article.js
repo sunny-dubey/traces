@@ -154,31 +154,41 @@ const Article = (() => {
         // Body
         elements.body.innerHTML = marked.parse(body);
 
-        // Setup share button
-        setupShareButton(slug);
+        // Setup share buttons
+        setupShareButton(slug, frontmatter.title || 'Check out this article');
     }
 
-    // Setup share button functionality
-    function setupShareButton(slug) {
+    // Setup share buttons functionality
+    function setupShareButton(slug, title) {
         const shareBtn = document.getElementById('share-btn');
-        if (!shareBtn) return;
-
+        const twitterBtn = document.getElementById('share-twitter');
         const shareUrl = `https://traces.sunnydubey.in/${slug}.html`;
 
-        shareBtn.addEventListener('click', async () => {
-            try {
-                await navigator.clipboard.writeText(shareUrl);
-                const span = shareBtn.querySelector('span');
-                const originalText = span.textContent;
-                span.textContent = 'Copied!';
-                setTimeout(() => {
-                    span.textContent = originalText;
-                }, 2000);
-            } catch (err) {
-                // Fallback for older browsers
-                prompt('Copy this link:', shareUrl);
-            }
-        });
+        // Copy link button
+        if (shareBtn) {
+            shareBtn.addEventListener('click', async () => {
+                try {
+                    await navigator.clipboard.writeText(shareUrl);
+                    const span = shareBtn.querySelector('span');
+                    const originalText = span.textContent;
+                    span.textContent = 'Copied!';
+                    setTimeout(() => {
+                        span.textContent = originalText;
+                    }, 2000);
+                } catch (err) {
+                    prompt('Copy this link:', shareUrl);
+                }
+            });
+        }
+
+        // Twitter/X share button
+        if (twitterBtn) {
+            twitterBtn.addEventListener('click', () => {
+                const tweetText = encodeURIComponent(title);
+                const tweetUrl = encodeURIComponent(shareUrl);
+                window.open(`https://twitter.com/intent/tweet?text=${tweetText}&url=${tweetUrl}`, '_blank', 'width=550,height=420');
+            });
+        }
     }
 
     // Initialize

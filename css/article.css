@@ -276,13 +276,19 @@ hr {
     text-decoration: underline;
 }
 
-/* Share Button */
+/* Share Buttons */
+.share-buttons {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
 .share-button {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 1rem;
-    margin-bottom: 1rem;
     background: var(--bg-secondary);
     border: 1px solid var(--border-color);
     border-radius: 4px;
@@ -301,6 +307,11 @@ hr {
 .share-button svg {
     width: 16px;
     height: 16px;
+}
+
+.share-twitter:hover {
+    border-color: var(--twitter-color);
+    color: var(--twitter-color);
 }
 
 /* Loading State */
