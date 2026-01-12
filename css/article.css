@@ -276,6 +276,33 @@ hr {
     text-decoration: underline;
 }
 
+/* Share Button */
+.share-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.share-button:hover {
+    border-color: var(--accent-blue);
+    color: var(--accent-blue);
+}
+
+.share-button svg {
+    width: 16px;
+    height: 16px;
+}
+
 /* Loading State */
 #loading {
     text-align: center;

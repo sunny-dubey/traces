@@ -153,6 +153,32 @@ const Article = (() => {
 
         // Body
         elements.body.innerHTML = marked.parse(body);
+
+        // Setup share button
+        setupShareButton(slug);
+    }
+
+    // Setup share button functionality
+    function setupShareButton(slug) {
+        const shareBtn = document.getElementById('share-btn');
+        if (!shareBtn) return;
+
+        const shareUrl = `https://traces.sunnydubey.in/${slug}.html`;
+
+        shareBtn.addEventListener('click', async () => {
+            try {
+                await navigator.clipboard.writeText(shareUrl);
+                const span = shareBtn.querySelector('span');
+                const originalText = span.textContent;
+                span.textContent = 'Copied!';
+                setTimeout(() => {
+                    span.textContent = originalText;
+                }, 2000);
+            } catch (err) {
+                // Fallback for older browsers
+                prompt('Copy this link:', shareUrl);
+            }
+        });
     }
 
     // Initialize
