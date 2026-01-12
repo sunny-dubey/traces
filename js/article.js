@@ -115,7 +115,7 @@ const Article = (() => {
     }
 
     // Render article
-    function render(content) {
+    function render(content, slug) {
         elements.loading.classList.add('hidden');
         elements.error.classList.add('hidden');
         elements.content.classList.remove('hidden');
@@ -195,7 +195,7 @@ const Article = (() => {
 
         try {
             const content = await fetchContent(slug);
-            render(content);
+            render(content, slug);
         } catch (error) {
             console.error('Error loading article:', error);
             showError();
