@@ -73,7 +73,7 @@ This lack of clarity made it impossible to reason about **why** certain choices 
 ### Consequences
 - Any experienced engineer would flag this project as unfit for a production environment.
 ### The Fix
-- Dropped my _Sutta_ break, sat my ass down, and did the work the codebase was begging for.
+- Dropped my _Chai_ break, sat my ass down, and did the work the codebase was begging for.
 ### Result
 - I don’t hate this codebase anymore, and I won’t be embarrassed if someone looks over my shoulder while I’m scrolling through it at my desk.
 
