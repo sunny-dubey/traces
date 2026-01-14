@@ -1,5 +1,6 @@
 {
   "articles": [
-    "vibe-coding.md"
+    "vibe-coding.md",
+    "graceful-shutdown.md"
   ]
 }

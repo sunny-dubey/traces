@@ -1,0 +1,12 @@
+# Obsidian
+articles/.obsidian/
+
+# OS files
+.DS_Store
+*/.DS_Store
+
+# Editor directories
+.idea/
+.vscode/
+*.swp
+*.swo
