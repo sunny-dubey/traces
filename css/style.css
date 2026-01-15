@@ -96,11 +96,18 @@ header {
     border-bottom: 1px solid var(--border-color);
 }
 
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
 header h1 {
     font-family: 'JetBrains Mono', 'SF Mono', 'Consolas', monospace;
     font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0;
     background: linear-gradient(
         90deg,
         var(--accent-blue) 0%,
@@ -421,11 +428,8 @@ footer p {
 
 /* Theme Toggle */
 .theme-toggle {
-    position: fixed;
-    top: 1.5rem;
-    right: 1.5rem;
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     border: 1px solid var(--border-color);
     border-radius: 50%;
     background: var(--bg-secondary);
@@ -434,7 +438,7 @@ footer p {
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    z-index: 1000;
+    flex-shrink: 0;
 }
 
 .theme-toggle:hover {
