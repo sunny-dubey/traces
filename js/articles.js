@@ -27,10 +27,11 @@ const Articles = (() => {
     }
 
     // Create article card element
-    function createCard(article) {
+    function createCard(article, index) {
         const card = document.createElement('a');
         card.href = `article.html?slug=${article.slug}`;
-        card.className = 'article-card';
+        card.className = 'article-card fade-in';
+        card.style.animationDelay = `${0.2 + (index * 0.1)}s`;
         card.setAttribute('role', 'listitem');
 
         const tagsHtml = article.tags?.length
@@ -39,7 +40,7 @@ const Articles = (() => {
 
         const metaParts = [];
         if (article.date) metaParts.push(article.date);
-        if (article.readTime) metaParts.push(`${article.readTime} min read`);
+        if (article.readTime) metaParts.push(`<span class="read-time"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.2 3.2.8-1.3-4.5-2.7V7z"/></svg>${article.readTime} min</span>`);
         const metaHtml = metaParts.length
             ? `<div class="article-meta">${metaParts.join(' · ')}</div>`
             : '';
@@ -91,8 +92,8 @@ const Articles = (() => {
 
         elements.articles.classList.remove('hidden');
         elements.articles.innerHTML = '';
-        publicArticles.forEach(article => {
-            elements.articles.appendChild(createCard(article));
+        publicArticles.forEach((article, index) => {
+            elements.articles.appendChild(createCard(article, index));
         });
     }
 
