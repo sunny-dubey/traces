@@ -75,6 +75,12 @@ nav {
     border-bottom: 1px solid var(--border-color);
 }
 
+.nav-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 nav a {
     color: var(--text-muted);
     text-decoration: none;
@@ -362,11 +368,8 @@ hr {
 
 /* Theme Toggle */
 .theme-toggle {
-    position: fixed;
-    top: 1.5rem;
-    right: 1.5rem;
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     border: 1px solid var(--border-color);
     border-radius: 50%;
     background: var(--bg-secondary);
@@ -375,7 +378,7 @@ hr {
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    z-index: 1000;
+    flex-shrink: 0;
 }
 
 .theme-toggle:hover {
