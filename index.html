@@ -36,6 +36,14 @@
             <p>I'll tell you a secret. Something they don't teach you in your temple. The Gods envy us. They envy us because we're mortal, because any moment might be our last. Everything is more beautiful because we're doomed. You will never be lovelier than you are now. We will never be here again.</p>
             <cite>— Achilles</cite>
         </blockquote>
+
+        <!-- About Section -->
+        <div class="about-section">
+            <p>Software Engineer @ <a href="https://collectiveartists.com/" target="_blank" rel="noopener">Collective Artists Network</a></p>
+            <p>CSE, <a href="https://www.iiitn.ac.in/" target="_blank" rel="noopener">IIIT Nagpur</a> '24</p>
+            <p>Interests: Backend, Distributed Systems, Database Internals and Cloud Infra.</p>
+            <p class="location"><span class="pulse-dot"></span> Bangalore, India · <span id="local-time"></span></p>
+        </div>
     </header>
 
     <!-- Articles Section -->
@@ -68,6 +76,22 @@
     <script src="js/articles.js"></script>
     <script>
         Articles.init();
+
+        // Live local time (IST)
+        function updateTime() {
+            const timeEl = document.getElementById('local-time');
+            if (timeEl) {
+                const now = new Date();
+                timeEl.textContent = now.toLocaleTimeString('en-IN', {
+                    timeZone: 'Asia/Kolkata',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: true
+                });
+            }
+        }
+        updateTime();
+        setInterval(updateTime, 60000);
     </script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "a556676a5061483793624790c5b1d45a"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
