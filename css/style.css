@@ -179,11 +179,14 @@ header p {
 
 /* Pulsing dot */
 .pulse-dot {
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
+    min-width: 8px;
+    min-height: 8px;
     background: #22c55e;
     border-radius: 50%;
     animation: pulse 2s ease-in-out infinite;
+    flex-shrink: 0;
 }
 
 @keyframes pulse {
