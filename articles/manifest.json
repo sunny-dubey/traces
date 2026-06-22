@@ -1,5 +1,8 @@
 {
   "articles": [
+    "claude-code-hooks.md",
+    "scattered-notes.md",
+    "container-runtime.md",
     "vibe-coding.md",
     "graceful-shutdown.md"
   ]

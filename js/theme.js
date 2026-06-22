@@ -23,9 +23,8 @@
 
     // Set up toggle button when DOM is ready
     document.addEventListener('DOMContentLoaded', function() {
-        const toggleBtn = document.querySelector('.theme-toggle');
-        if (toggleBtn) {
+        document.querySelectorAll('.theme-toggle').forEach((toggleBtn) => {
             toggleBtn.addEventListener('click', toggle);
-        }
+        });
     });
 })();

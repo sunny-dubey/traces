@@ -30,8 +30,8 @@ const Articles = (() => {
     function createCard(article, index) {
         const card = document.createElement('a');
         card.href = `article.html?slug=${article.slug}`;
-        card.className = 'article-card fade-in';
-        card.style.animationDelay = `${0.2 + (index * 0.1)}s`;
+        card.className = 'article-card';
+        card.style.animationDelay = `${0.05 + (index * 0.05)}s`;
         card.setAttribute('role', 'listitem');
 
         const tagsHtml = article.tags?.length
