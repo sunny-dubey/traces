@@ -56,7 +56,7 @@ interface TimelineItem {
     points: string[];
 }
 
-const timeline: TimelineItem[] = [
+const experience: TimelineItem[] = [
     {
         date: 'Nov 2025 — Present',
         role: 'Backend Engineer',
@@ -74,6 +74,7 @@ const timeline: TimelineItem[] = [
         date: 'May 2024 — Oct 2025',
         role: 'Backend Engineer',
         at: 'Timepass',
+        atHref: 'https://timepass.games/',
         points: [
             'Built and owned a cross-platform in-app payment system (Google Play Billing + Apple Pay API) processing 50K+ daily transactions, with automated subscription renewals, failure recovery, and refund flows.',
             'Hardened Razorpay integration with idempotent order creation, signed-webhook verification, and reconciliation pipelines to prevent double-charges; instrumented Grafana + New Relic, improving system reliability by 40%.',
@@ -91,6 +92,9 @@ const timeline: TimelineItem[] = [
             'Integrated AWS Secrets Manager, S3, and Rekognition for secrets management and image analysis; automated lint, tests, and coverage via GitHub Actions.',
         ],
     },
+];
+
+const education: TimelineItem[] = [
     {
         date: 'Dec 2020 — Jun 2024',
         role: 'B.Tech, Computer Science',
@@ -134,7 +138,7 @@ const timeline: TimelineItem[] = [
                 <a href="https://www.galleri5.com/" target="_blank" rel="noopener noreferrer">Galleri5</a>
             </p>
             <p class="lead">
-                Building backend systems and distributed infrastructure — payments, AI pipelines, and the reliability layers that keep them honest at scale.
+                Building backend systems and distributed infrastructure, from payments to AI pipelines and the reliability layers that keep them honest at scale.
             </p>
             <div class="location" aria-label="Location and local time">
                 <span class="pulse-dot" aria-hidden="true"></span>
@@ -144,27 +148,24 @@ const timeline: TimelineItem[] = [
     </section>
 
     <section id="writing">
-        <h2>Writing</h2>
+        <h2>
+            <span>Writing</span>
+            {posts.length > 0 && <span class="section-count">{posts.length}</span>}
+        </h2>
         {posts.length === 0 ? (
             <p class="notice">No articles yet.</p>
         ) : (
-            <div class="articles">
+            <ul class="articles" role="list">
                 {posts.map(post => (
-                    <a class="article-card" href={`/blog/${post.id}/`}>
-                        <h3 class="article-title">{post.data.title}</h3>
-                        {post.data.excerpt && <p class="article-excerpt">{post.data.excerpt}</p>}
-                        <div class="article-meta">
-                            <span>{fmtDate(post.data.date)}</span>
-                            {post.data.readTime && (<><span class="sep">·</span><span>{post.data.readTime} min read</span></>)}
-                        </div>
-                        {post.data.tags && post.data.tags.length > 0 && (
-                            <div class="article-tags">
-                                {post.data.tags.map(t => <span>{t}</span>)}
-                            </div>
-                        )}
-                    </a>
+                    <li>
+                        <a class="article-card" href={`/blog/${post.id}/`}>
+                            <span class="article-title">{post.data.title}</span>
+                            <span class="article-date">{fmtDate(post.data.date)}</span>
+                            <span class="article-arrow" aria-hidden="true">→</span>
+                        </a>
+                    </li>
                 ))}
-            </div>
+            </ul>
         )}
     </section>
 
@@ -189,7 +190,30 @@ const timeline: TimelineItem[] = [
     <section id="experience">
         <h2>Experience</h2>
         <ul class="timeline">
-            {timeline.map(item => (
+            {experience.map(item => (
+                <li>
+                    <span class="date">{item.date}</span>
+                    <div>
+                        <span class="role">{item.role}</span>
+                        <span class="at"> · </span>
+                        {item.atHref ? (
+                            <a href={item.atHref} target="_blank" rel="noopener noreferrer" class="at">{item.at}</a>
+                        ) : (
+                            <span class="at">{item.at}</span>
+                        )}
+                    </div>
+                    <ul class="points">
+                        {item.points.map(pt => <li>{pt}</li>)}
+                    </ul>
+                </li>
+            ))}
+        </ul>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <ul class="timeline">
+            {education.map(item => (
                 <li>
                     <span class="date">{item.date}</span>
                     <div>

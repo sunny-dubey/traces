@@ -1,6 +1,5 @@
 ---
 title: Claude Code Can Read Your .env. I Finally Did Something About It.
-excerpt: PreToolUse hooks, the 2.1.88 source leak, and a template to lock down your project
 date: 2026-06-23
 tags:
   - claude

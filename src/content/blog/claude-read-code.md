@@ -1,13 +1,6 @@
 ---
 title: Use Claude to Read Code, Not Just Write It
-excerpt: A weekend Slack ping, a production edge case, and a two-minute fix.
 date: 2026-07-01
-tags:
-  - claude
-  - debugging
-  - llm
-  - engineering
-readTime: 2
 public: true
 ---
 

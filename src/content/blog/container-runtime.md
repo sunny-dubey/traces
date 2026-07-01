@@ -1,13 +1,6 @@
 ---
 title: Docker Works Fine. I Wanted to Know What Was Actually Happening.
-excerpt: Linux namespaces, a Go binary, and building container isolation from scratch
 date: 2026-05-14
-tags:
-  - containers
-  - docker
-  - linux
-  - go
-readTime: 6
 public: true
 ---
 

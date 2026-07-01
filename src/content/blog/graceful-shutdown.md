@@ -1,13 +1,7 @@
 ---
 title: "Server Etiquette 101: Don't Just Pull the Plug"
-excerpt: Learn the Art of Polite Exit
 date: 2026-01-14
-tags:
-  - os-signals
-  - devops
-readTime: 5
 public: true
-og_image: images/og/scarface.jpg
 ---
 
 If you’ve ever built a backend server, you know this ritual. You pick your stack be it NodeJs, FastAPI or Go and get to work. Once you are done with the writing part, you open a fresh terminal and run `npm run dev` or `uvicorn main:app` or `go run main.go`. The server starts locally, binds itself to a port maybe `3000` `8000` or `8080` and starts listening for incoming requests. You hit an endpoint from a browser, Postman or curl, you test stuff, maybe you break stuff and when you’re bored or just want to touch grass, you smash **Ctrl + C**. The application i.e process stops and life moves on.

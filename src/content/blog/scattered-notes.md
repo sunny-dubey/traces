@@ -1,13 +1,6 @@
 ---
 title: A Few Things to Document (That Might Not Be Related)
-excerpt: LLM skepticism, moving back to VS Code, delegation, and why local models matter
 date: 2026-06-22
-tags:
-  - llm
-  - local-ai
-  - edge-computing
-  - tooling
-readTime: 5
 public: true
 ---
 
