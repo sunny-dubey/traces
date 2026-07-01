@@ -15,7 +15,7 @@ pnpm-debug.log*
 .env.production
 
 # Obsidian
-articles/.obsidian/
+.obsidian/
 
 # OS files
 .DS_Store
