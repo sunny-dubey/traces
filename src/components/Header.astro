@@ -1,0 +1,23 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+---
+<header class="site-header">
+    <a class="brand" href="/">
+        <span class="dot" aria-hidden="true"></span>
+        Sunny Dubey
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+        <a href="/#writing">writing</a>
+        <a href="/#projects" class="nav-hide-sm">projects</a>
+        <a href="/#experience" class="nav-hide-sm">experience</a>
+        <a href="/Sunny_Dubey.pdf" download class="cta">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Resume</span>
+        </a>
+        <ThemeToggle />
+    </nav>
+</header>

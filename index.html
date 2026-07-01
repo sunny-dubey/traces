@@ -3,180 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Thoughts on software engineering, technology, and more.">
+    <meta name="description" content="Sunny Dubey — software engineer working on backend systems and distributed infrastructure. Projects and writing.">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Traces">
-    <meta property="og:description" content="Thoughts on software engineering, technology, and more.">
+    <meta property="og:title" content="Sunny Dubey">
+    <meta property="og:description" content="Software engineer — backend systems and distributed infrastructure.">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Traces">
-    <meta name="twitter:description" content="Thoughts on software engineering, technology, and more.">
-    <meta name="theme-color" content="#0a0c10">
-    <title>Traces</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='24' x='4' font-size='24' font-family='monospace' fill='%2305df72'>T</text></svg>">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/shell.css">
+    <meta name="twitter:title" content="Sunny Dubey">
+    <meta name="twitter:description" content="Software engineer — backend systems and distributed infrastructure.">
+    <meta name="theme-color" content="#ffffff">
+    <title>Sunny Dubey</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='24' x='4' font-size='24' font-family='sans-serif' font-weight='600' fill='%230969da'>S</text></svg>">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/theme.js"></script>
 </head>
 <body>
-    <div class="app">
-        <header class="topbar">
-            <a href="index.html" class="logo">
-                <span class="logo-mark">~/</span><span class="logo-name">traces</span>
-            </a>
-            <button class="nav-toggle" type="button" aria-label="Toggle navigation">≡ nav</button>
-            <span class="topbar-spacer"></span>
-            <button class="topbar-btn theme-toggle" type="button" aria-label="Toggle theme">
-                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/>
-                </svg>
-                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/>
-                </svg>
-            </button>
-            <a class="topbar-btn" href="https://x.com/sunnydub_" target="_blank" rel="noopener">contact</a>
+    <div class="page">
+        <header class="site-header">
+            <a class="brand" href="index.html">Sunny Dubey</a>
+            <nav class="site-nav">
+                <a href="#projects">projects</a>
+                <a href="#writing">writing</a>
+                <a href="Sunny_Dubey.pdf" download>resume</a>
+                <a href="https://github.com/sunny-dubey" target="_blank" rel="noopener">github</a>
+                <a href="https://www.linkedin.com/in/sunny-dubey-tech/" target="_blank" rel="noopener">linkedin</a>
+                <button class="theme-toggle" type="button" aria-label="Toggle theme">
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/></svg>
+                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/></svg>
+                </button>
+            </nav>
         </header>
 
-        <div class="workspace">
-            <aside class="sidebar" id="sidebar" aria-label="Site navigation">
-                <div class="sidebar-header">
-                    <span>Navigator</span>
-                    <span class="sidebar-hint">scroll</span>
+        <main>
+            <section id="about">
+                <h1>Sunny Dubey</h1>
+                <p class="lead">Software engineer building backend systems and distributed infrastructure. Currently at <a href="https://collectiveartists.com/" target="_blank" rel="noopener">CAN</a>, based in Bangalore.</p>
+                <p class="bio">I care about backends that survive traffic spikes, databases that stay honest under load, and infrastructure that doesn't wake you at 3am unless it really has to. B.Tech in CSE from <a href="https://www.iiitn.ac.in/" target="_blank" rel="noopener">IIIT Nagpur</a> (2024).</p>
+                <p class="tags">
+                    <span>Go</span><span>Python</span><span>PostgreSQL</span><span>Kubernetes</span><span>Distributed Systems</span><span>Database Internals</span>
+                </p>
+            </section>
+
+            <section id="projects">
+                <h2>Projects</h2>
+                <div class="projects">
+                    <a class="project" href="https://github.com/sunny-dubey" target="_blank" rel="noopener">
+                        <div class="project-header">
+                            <span class="project-name">Project One</span>
+                            <span class="project-link">github ↗</span>
+                        </div>
+                        <p class="project-desc">Short one-line description of what this project does and why it matters.</p>
+                        <div class="project-stack">Go · PostgreSQL · Docker</div>
+                    </a>
+                    <a class="project" href="https://github.com/sunny-dubey" target="_blank" rel="noopener">
+                        <div class="project-header">
+                            <span class="project-name">Project Two</span>
+                            <span class="project-link">github ↗</span>
+                        </div>
+                        <p class="project-desc">Short one-line description of what this project does and why it matters.</p>
+                        <div class="project-stack">Python · Kafka · Kubernetes</div>
+                    </a>
                 </div>
-                <nav>
-                    <div class="sidebar-group">
-                        <div class="sidebar-group-label"><span>▸</span> site</div>
-                        <a class="sidebar-link active plain" href="#about" data-section="about">about</a>
-                        <a class="sidebar-link plain" href="#writing" data-section="writing">writing</a>
-                    </div>
-                    <div class="sidebar-group">
-                        <div class="sidebar-group-label"><span>▸</span> links</div>
-                        <a class="sidebar-link" href="https://github.com/sunny-dubey" target="_blank" rel="noopener">github</a>
-                        <a class="sidebar-link" href="https://www.linkedin.com/in/sunny-dubey-tech/" target="_blank" rel="noopener">linkedin</a>
-                        <a class="sidebar-link" href="https://drive.google.com/file/d/1NbSu8P96-3JxoTNWEPNNf4p8DmIEddt5/view?usp=sharing" target="_blank" rel="noopener">resume</a>
-                    </div>
-                </nav>
-            </aside>
+            </section>
 
-            <div class="content-pane">
-                <div class="breadcrumb">
-                    <span class="breadcrumb-path">/about</span>
-                    <span class="breadcrumb-sep">│</span>
-                    <span class="breadcrumb-hint"><span class="accent">nav</span> <span>→ content</span></span>
-                </div>
+            <section id="writing">
+                <h2>Writing</h2>
+                <div id="loading" role="status" aria-live="polite">Loading articles…</div>
+                <div id="error" class="hidden" role="alert">Failed to load articles.</div>
+                <div id="articles" class="hidden articles" role="list" aria-label="Articles"></div>
+                <div id="empty" class="hidden">No articles yet.</div>
+            </section>
 
-                <main class="site-main" id="site-main">
-                    <section id="about" data-section="about" class="fade-in">
-                        <h1 class="page-title">About</h1>
-                        <p class="lead">A software engineer building backend systems and distributed platforms, based in Bangalore.</p>
-                        <p class="bio">I write about engineering, systems design, and how code becomes reliable at scale. I care about backends that survive traffic spikes, databases that stay honest under load, and infrastructure that doesn't wake you at 3am unless it really has to.</p>
-
-                        <div class="now-row">
-                            <div class="now-item">
-                                <span class="org">can</span><span class="sep">·</span><span class="role">software engineer</span>
-                            </div>
-                            <div class="now-item">
-                                <span class="org">iiit nagpur</span><span class="sep">·</span><span class="role">cse '24</span>
-                            </div>
+            <section id="experience">
+                <h2>Experience</h2>
+                <ul class="timeline">
+                    <li>
+                        <span class="date">Present</span>
+                        <div>
+                            <span class="role">Software Engineer</span> · <a href="https://collectiveartists.com/" target="_blank" rel="noopener">CAN</a>
                         </div>
-
-                        <div class="location-line">
-                            <span class="pulse-dot" aria-hidden="true"></span>
-                            <span>Bangalore, India · <span id="local-time"></span></span>
+                        <p class="desc">Building backend systems and cloud infrastructure for production workloads.</p>
+                    </li>
+                    <li>
+                        <span class="date">2020 – 2024</span>
+                        <div>
+                            <span class="role">B.Tech CSE</span> · <a href="https://www.iiitn.ac.in/" target="_blank" rel="noopener">IIIT Nagpur</a>
                         </div>
+                        <p class="desc">Computer Science &amp; Engineering. Focus on systems, algorithms, and backend engineering.</p>
+                    </li>
+                </ul>
+            </section>
+        </main>
 
-                        <div class="section">
-                            <div class="section-label">stack</div>
-                            <div class="pill-list">
-                                <span class="pill">Backend</span>
-                                <span class="pill">Distributed Systems</span>
-                                <span class="pill">Database Internals</span>
-                                <span class="pill">Cloud Infra</span>
-                                <span class="pill">Go</span>
-                                <span class="pill">Python</span>
-                                <span class="pill">PostgreSQL</span>
-                                <span class="pill">Kubernetes</span>
-                            </div>
-                        </div>
-
-                        <div class="section">
-                            <div class="section-label">experience</div>
-                            <div class="timeline">
-                                <div class="timeline-item">
-                                    <span class="timeline-date">Present</span>
-                                    <div class="timeline-headline">
-                                        <span class="title">Software Engineer</span>
-                                        <span class="org"> · <a href="https://collectiveartists.com/" target="_blank" rel="noopener">CAN</a></span>
-                                    </div>
-                                    <p class="timeline-desc">Building backend systems and cloud infrastructure for production workloads.</p>
-                                </div>
-                                <div class="timeline-item">
-                                    <span class="timeline-date">2020 – 2024</span>
-                                    <div class="timeline-headline">
-                                        <span class="title">B.Tech CSE</span>
-                                        <span class="org"> · <a href="https://www.iiitn.ac.in/" target="_blank" rel="noopener">IIIT Nagpur</a></span>
-                                    </div>
-                                    <p class="timeline-desc">Computer Science &amp; Engineering. Focus on systems, algorithms, and backend engineering.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <blockquote class="epigraph">
-                            <p>I'll tell you a secret. Something they don't teach you in your temple. The Gods envy us. They envy us because we're mortal, because any moment might be our last. Everything is more beautiful because we're doomed. You will never be lovelier than you are now. We will never be here again.</p>
-                            <cite>— Achilles</cite>
-                        </blockquote>
-                    </section>
-
-                    <section id="writing" data-section="writing" class="section" style="margin-top: 3rem;">
-                        <div class="section-label">writing</div>
-                        <div id="loading" role="status" aria-live="polite">
-                            <div class="loading-pulse" aria-hidden="true"></div>
-                            <p>Loading articles</p>
-                        </div>
-                        <div id="error" class="hidden" role="alert">
-                            <p>Failed to load articles. Please try again later.</p>
-                        </div>
-                        <div id="articles" class="hidden articles" role="list" aria-label="Articles"></div>
-                        <div id="empty" class="hidden">
-                            <p>No articles found.</p>
-                        </div>
-                    </section>
-                </main>
-            </div>
-        </div>
-
-        <footer class="statusbar">
-            <span class="statusbar-dot" aria-hidden="true"></span>
-            <span>Bangalore · IST</span>
-            <span class="statusbar-spacer"></span>
-            <a href="https://x.com/sunnydub_" target="_blank" rel="noopener">twitter</a>
-            <a href="https://github.com/sunny-dubey" target="_blank" rel="noopener">github</a>
+        <footer class="site-footer">
             <span>© 2026 Sunny Dubey</span>
+            <span>
+                <a href="https://github.com/sunny-dubey" target="_blank" rel="noopener">github</a>
+                <a href="https://www.linkedin.com/in/sunny-dubey-tech/" target="_blank" rel="noopener">linkedin</a>
+                <a href="https://x.com/sunnydub_" target="_blank" rel="noopener">twitter</a>
+                <a href="Sunny_Dubey.pdf" download>resume</a>
+            </span>
         </footer>
     </div>
 
     <script src="js/utils.js"></script>
     <script src="js/articles.js"></script>
-    <script src="js/shell.js"></script>
-    <script>
-        Articles.init();
-
-        function updateTime() {
-            const timeEl = document.getElementById('local-time');
-            if (timeEl) {
-                timeEl.textContent = new Date().toLocaleTimeString('en-IN', {
-                    timeZone: 'Asia/Kolkata',
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    hour12: true
-                });
-            }
-        }
-        updateTime();
-        setInterval(updateTime, 60000);
-    </script>
+    <script>Articles.init();</script>
     <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "a556676a5061483793624790c5b1d45a"}'></script>
 </body>
 </html>

@@ -1,0 +1,76 @@
+---
+import { getCollection, render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+    const posts = await getCollection('blog', ({ data }) =>
+        data.public !== false && data.public !== 'false'
+    );
+    return posts.map((post) => ({
+        params: { slug: post.id },
+        props: { post },
+    }));
+}
+
+interface Props { post: CollectionEntry<'blog'>; }
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const fmtDateLong = (d: Date) =>
+    d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+const title = `${post.data.title} — Sunny Dubey`;
+---
+<Base title={title} description={post.data.excerpt}>
+    <article>
+        <header class="article-head">
+            <h1 class="article-title-page">{post.data.title}</h1>
+            {post.data.excerpt && <p class="article-excerpt-page">{post.data.excerpt}</p>}
+            <div class="article-meta-page">
+                <span>{fmtDateLong(post.data.date)}</span>
+                {post.data.readTime && (<><span>·</span><span>{post.data.readTime} min read</span></>)}
+            </div>
+            {post.data.tags && post.data.tags.length > 0 && (
+                <div class="article-tags">
+                    {post.data.tags.map(t => <span>{t}</span>)}
+                </div>
+            )}
+        </header>
+
+        <hr class="article-divider" />
+
+        <div class="prose">
+            <Content />
+        </div>
+
+        <footer class="article-footer">
+            <button id="share-btn" class="share-button" type="button" aria-label="Copy link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg>
+                <span>Copy link</span>
+            </button>
+            <a href="/#writing">← more writing</a>
+        </footer>
+    </article>
+
+    <script>
+        const btn = document.getElementById('share-btn');
+        if (btn) {
+            btn.addEventListener('click', async () => {
+                const span = btn.querySelector('span');
+                const original = span?.textContent ?? 'Copy link';
+                try {
+                    await navigator.clipboard.writeText(window.location.href);
+                    if (span) span.textContent = 'Copied!';
+                } catch {
+                    window.prompt('Copy this link:', window.location.href);
+                }
+                setTimeout(() => { if (span) span.textContent = original; }, 2000);
+            });
+        }
+    </script>
+</Base>

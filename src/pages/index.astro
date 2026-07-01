@@ -1,0 +1,215 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+const posts = (await getCollection('blog', ({ data }) =>
+    data.public !== false && data.public !== 'false'
+))
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const fmtDate = (d: Date) =>
+    d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+
+interface StackGroup {
+    label: string;
+    items: string[];
+}
+
+const stack: StackGroup[] = [
+    { label: 'Languages',    items: ['Python', 'JavaScript', 'SQL', 'Go'] },
+    { label: 'Frameworks',   items: ['FastAPI', 'Django', 'Node.js'] },
+    { label: 'Databases',    items: ['PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'Pinecone'] },
+    { label: 'Payments',     items: ['Razorpay', 'Cashfree', 'Google Play Billing', 'Apple Pay', 'idempotency', 'webhooks', 'reconciliation'] },
+    { label: 'AI / ML',      items: ['Anthropic APIs', 'OpenAI APIs', 'LoRA fine-tuning', 'prompt-engineering tooling'] },
+    { label: 'Cloud & DevOps', items: ['AWS (ECS/Fargate, Elastic Beanstalk, CodeDeploy, S3, Secrets Manager, Rekognition)', 'Azure', 'Docker', 'GitHub Actions', 'CI/CD'] },
+    { label: 'Backend',      items: ['Celery', 'MQTT', 'Agora RTC/RTM', 'RBAC', 'Grafana', 'New Relic'] },
+];
+
+interface Project {
+    name: string;
+    href: string;
+    desc: string;
+    stack: string[];
+    highlights?: string[];
+}
+
+const projects: Project[] = [
+    {
+        name: 'Container Runtime from Scratch',
+        href: 'https://github.com/sunny-dubey/container-runtime',
+        desc: 'A minimal Docker-like container runtime in Go using Linux namespaces, cgroups, and chroot to isolate the process tree, filesystem, and hostname. Runs the containerized app as PID 1 in an isolated root filesystem and enforces resource limits (PID cap, memory) via cgroups.',
+        stack: ['Go', 'Linux Namespaces', 'Cgroups', 'chroot'],
+    },
+    {
+        name: 'Qwen-Image-Edit LoRA Fine-Tuning',
+        href: 'https://github.com/sunny-dubey/qwen-image-edit-lora',
+        desc: 'Two-stage LoRA fine-tuning pipeline for Qwen-Image-Edit-2509 performing identity-preserving person replacement while retaining pose, lighting, and scene. Optimized training under limited GPU memory with FP8 training, gradient checkpointing/offload, and rank-64 LoRA across attention and MLP modules.',
+        stack: ['Python', 'PyTorch', 'DiffSynth-Studio', 'LoRA'],
+    },
+];
+
+interface TimelineItem {
+    date: string;
+    role: string;
+    at: string;
+    atHref?: string;
+    points: string[];
+}
+
+const timeline: TimelineItem[] = [
+    {
+        date: 'Nov 2025 — Present',
+        role: 'Backend Engineer',
+        at: 'Galleri5',
+        atHref: 'https://www.galleri5.com/',
+        points: [
+            'Mentor a 3-engineer team across 3 backend services — own service architecture, define API/schema and idempotency standards, and review 10–20 PRs/week, catching auth gaps, race conditions, and missing idempotency keys pre-release.',
+            'Built the backend (FastAPI) and an internal dashboard for an AI cinematic content-generation platform, exposing a unified API over 10+ image/LLM providers with async job queues and provider retry/fallback — sustaining 5,000+ generations/day.',
+            'Built a reliability/observability layer with structured logging and Slack-based error alerting, surfacing production failures in real time and cutting mean detection time from hours to minutes.',
+            'Engineered the Cashfree & Razorpay payments layer with idempotent order creation, signed-webhook verification, and reconciliation jobs — eliminating duplicate charges and missed events.',
+            'Designed fine-grained RBAC across all 3 services and led migration to Docker on Azure with hardened CI/CD (automated tests, linters, formatters).',
+        ],
+    },
+    {
+        date: 'May 2024 — Oct 2025',
+        role: 'Backend Engineer',
+        at: 'Timepass',
+        points: [
+            'Built and owned a cross-platform in-app payment system (Google Play Billing + Apple Pay API) processing 50K+ daily transactions, with automated subscription renewals, failure recovery, and refund flows.',
+            'Hardened Razorpay integration with idempotent order creation, signed-webhook verification, and reconciliation pipelines to prevent double-charges; instrumented Grafana + New Relic, improving system reliability by 40%.',
+            'Migrated deploys from AWS Elastic Beanstalk to ECS (Fargate) with blue-green releases via CodeDeploy — zero-downtime releases and 70% faster deploys.',
+            'Designed normalized schemas and REST APIs sustaining sub-100ms queries under concurrent load; built a priority-based Celery multi-queue to isolate high-priority payment tasks during peak traffic.',
+            'Built a real-time voice/video session backend on Agora (RTC/RTM token generation, balance validation, MQTT-based token renewal).',
+        ],
+    },
+    {
+        date: 'Dec 2023 — May 2024',
+        role: 'Backend Engineering Intern',
+        at: 'Timepass',
+        points: [
+            'Eliminated N+1 queries and added Redis caching with dynamic invalidation, cutting DB load and tail latency under peak traffic.',
+            'Integrated AWS Secrets Manager, S3, and Rekognition for secrets management and image analysis; automated lint, tests, and coverage via GitHub Actions.',
+        ],
+    },
+    {
+        date: 'Dec 2020 — Jun 2024',
+        role: 'B.Tech, Computer Science',
+        at: 'IIIT Nagpur',
+        atHref: 'https://www.iiitn.ac.in/',
+        points: [
+            'IIT-JEE Advanced — ranked in the top 2% of 1.2M+ candidates.',
+            'Competitive Programming — LeetCode 1560 · Codeforces 1196 · 700+ problems solved.',
+        ],
+    },
+];
+---
+<Base title="Sunny Dubey">
+    <section id="about" class="hero">
+        <div class="hero-photo">
+            <img
+                class="avatar"
+                src="/profile_photo.jpg"
+                width="144"
+                height="144"
+                alt="Portrait of Sunny Dubey"
+                loading="eager"
+                decoding="async"
+            />
+        </div>
+        <div class="hero-text">
+            <h1>Sunny Dubey</h1>
+            <p class="hero-role">
+                <span>Backend Engineer</span>
+                <span class="dot-sep" aria-hidden="true">·</span>
+                <a href="https://www.galleri5.com/" target="_blank" rel="noopener noreferrer">Galleri5</a>
+            </p>
+            <p class="lead">
+                Building backend systems and distributed infrastructure — payments, AI pipelines, and the reliability layers that keep them honest at scale.
+            </p>
+            <div class="location" aria-label="Location and local time">
+                <span class="pulse-dot" aria-hidden="true"></span>
+                <span>Bangalore, India · <span id="local-time">—</span> IST</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="writing">
+        <h2>Writing</h2>
+        {posts.length === 0 ? (
+            <p class="notice">No articles yet.</p>
+        ) : (
+            <div class="articles">
+                {posts.map(post => (
+                    <a class="article-card" href={`/blog/${post.id}/`}>
+                        <h3 class="article-title">{post.data.title}</h3>
+                        {post.data.excerpt && <p class="article-excerpt">{post.data.excerpt}</p>}
+                        <div class="article-meta">
+                            <span>{fmtDate(post.data.date)}</span>
+                            {post.data.readTime && (<><span class="sep">·</span><span>{post.data.readTime} min read</span></>)}
+                        </div>
+                        {post.data.tags && post.data.tags.length > 0 && (
+                            <div class="article-tags">
+                                {post.data.tags.map(t => <span>{t}</span>)}
+                            </div>
+                        )}
+                    </a>
+                ))}
+            </div>
+        )}
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects">
+            {projects.map(p => (
+                <a class="project" href={p.href} target="_blank" rel="noopener noreferrer">
+                    <div class="project-header">
+                        <span class="project-name">{p.name}</span>
+                        <span class="project-link">github <span class="arrow">↗</span></span>
+                    </div>
+                    <p class="project-desc">{p.desc}</p>
+                    <div class="project-stack">
+                        {p.stack.map(s => <span>{s}</span>)}
+                    </div>
+                </a>
+            ))}
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Experience</h2>
+        <ul class="timeline">
+            {timeline.map(item => (
+                <li>
+                    <span class="date">{item.date}</span>
+                    <div>
+                        <span class="role">{item.role}</span>
+                        <span class="at"> · </span>
+                        {item.atHref ? (
+                            <a href={item.atHref} target="_blank" rel="noopener noreferrer" class="at">{item.at}</a>
+                        ) : (
+                            <span class="at">{item.at}</span>
+                        )}
+                    </div>
+                    <ul class="points">
+                        {item.points.map(pt => <li>{pt}</li>)}
+                    </ul>
+                </li>
+            ))}
+        </ul>
+    </section>
+
+    <section id="stack">
+        <h2>Tech Stack</h2>
+        <dl class="stack-grid">
+            {stack.map(group => (
+                <>
+                    <dt>{group.label}</dt>
+                    <dd>
+                        {group.items.map(item => <span class="chip">{item}</span>)}
+                    </dd>
+                </>
+            ))}
+        </dl>
+    </section>
+</Base>

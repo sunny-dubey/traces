@@ -1,0 +1,87 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+    title: string;
+    description?: string;
+}
+
+const {
+    title,
+    description = 'Sunny Dubey — software engineer building backend systems and distributed infrastructure. Projects, writing, and things I have learned along the way.',
+} = Astro.props;
+
+const siteUrl = 'https://traces.sunnydubey.in';
+const canonical = new URL(Astro.url.pathname, siteUrl).href;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Sunny Dubey" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0e1013" media="(prefers-color-scheme: dark)" />
+    <link rel="canonical" href={canonical} />
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23059669'/><text y='23' x='7' font-size='20' font-family='sans-serif' font-weight='700' fill='white'>S</text></svg>" />
+
+    <title>{title}</title>
+
+    {/* Apply theme before body paints — avoids flash of wrong theme. */}
+    <script is:inline>
+        (function() {
+            try {
+                var stored = localStorage.getItem('theme');
+                var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                var theme = stored || (prefersDark ? 'dark' : 'light');
+                if (theme === 'dark') {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                }
+            } catch (e) {}
+        })();
+    </script>
+</head>
+<body>
+    <div class="page">
+        <Header />
+        <main id="main">
+            <slot />
+        </main>
+        <Footer />
+    </div>
+
+    <script>
+        // Theme toggle
+        document.querySelectorAll('.theme-toggle').forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+                if (isDark) {
+                    document.documentElement.removeAttribute('data-theme');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+        });
+
+        // Live Bangalore time
+        const timeEl = document.getElementById('local-time');
+        if (timeEl) {
+            const fmt = new Intl.DateTimeFormat('en-IN', {
+                timeZone: 'Asia/Kolkata',
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: true,
+            });
+            const tick = () => { timeEl.textContent = fmt.format(new Date()); };
+            tick();
+            setInterval(tick, 30_000);
+        }
+    </script>
+</body>
+</html>
