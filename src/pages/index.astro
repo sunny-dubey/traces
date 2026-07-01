@@ -48,12 +48,20 @@ const projects: Project[] = [
     },
 ];
 
+interface Subrole {
+    date?: string;
+    role: string;
+    at?: string;
+    points: string[];
+}
+
 interface TimelineItem {
     date: string;
     role: string;
     at: string;
     atHref?: string;
     points: string[];
+    subroles?: Subrole[];
 }
 
 const experience: TimelineItem[] = [
@@ -104,15 +112,16 @@ const education: TimelineItem[] = [
             'IIT-JEE Advanced — ranked in the top 2% of 1.2M+ candidates.',
             'Competitive Programming — LeetCode 1560 · Codeforces 1196 · 700+ problems solved.',
         ],
-    },
-    {
-        date: 'Dec 2020 — Jun 2022',
-        role: 'Co-Founder · Lead, Content & Narratives',
-        at: 'The Orator Club, IIIT Nagpur',
-        points: [
-            "Co-founded The Orator Club at IIIT Nagpur — the institute's first debate and public-speaking community.",
-            'Led and organized debates across a wide range of topics; migrated operations to Discord during the COVID-19 pandemic.',
-            "Cultivated a collaborative environment that improved members' communication, critical-thinking, and public-speaking confidence.",
+        subroles: [
+            {
+                role: 'Co-Founder · Lead, Content & Narratives',
+                at: 'The Orator Club',
+                points: [
+                    "Co-founded The Orator Club at IIIT Nagpur — the institute's first debate and public-speaking community.",
+                    'Led and organized debates across a wide range of topics; migrated operations to Discord during the COVID-19 pandemic.',
+                    "Cultivated a collaborative environment that improved members' communication, critical-thinking, and public-speaking confidence.",
+                ],
+            },
         ],
     },
 ];
@@ -228,6 +237,18 @@ const education: TimelineItem[] = [
                     <ul class="points">
                         {item.points.map(pt => <li>{pt}</li>)}
                     </ul>
+                    {item.subroles && item.subroles.map(sub => (
+                        <div class="subrole">
+                            <div class="subrole-header">
+                                <span class="subrole-role">{sub.role}</span>
+                                {sub.at && (<><span class="at"> · </span><span class="at">{sub.at}</span></>)}
+                                {sub.date && <span class="subrole-date">{sub.date}</span>}
+                            </div>
+                            <ul class="points">
+                                {sub.points.map(pt => <li>{pt}</li>)}
+                            </ul>
+                        </div>
+                    ))}
                 </li>
             ))}
         </ul>
